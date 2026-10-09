@@ -19,3 +19,4 @@
 
 .section-heading.about-section-heading,.section-heading.projects-page-heading{margin-top:0}.projects-page-heading h1{font-size:27px;margin:0}.design-project-cover img{height:auto;aspect-ratio:16/9;object-fit:cover;object-position:var(--cover-position,50% 50%)}.design-project-subtitle{font-size:14px}
 @media(max-width:760px){.projects-page-heading h1{font-size:25px}}
+.profile-role.profile-research-areas{font-size:14px;line-height:1.65}.profile-research-areas strong{display:block;font-weight:700}.profile-research-areas strong+strong{margin-top:4px}
