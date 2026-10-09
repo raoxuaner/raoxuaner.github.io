@@ -1,0 +1,6 @@
+title: "XuanEr (Seona) Rao · Research & Design"
+url: "https://raoxuaner.github.io"
+baseurl: ""
+markdown: kramdown
+plugins: []
+exclude: [README.md]
