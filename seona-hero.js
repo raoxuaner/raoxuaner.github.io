@@ -45,31 +45,55 @@
     uniform float u_time;
     uniform float u_energy;
     uniform float u_motion;
+    float hash21(vec2 p) {
+      vec3 q = fract(vec3(p.xyx) * .1031);
+      q += dot(q, q.yzx + 33.33);
+      return fract((q.x + q.y) * q.z);
+    }
+    float noise(vec2 p) {
+      vec2 cell = floor(p);
+      vec2 f = fract(p);
+      vec2 u = f * f * (3.0 - 2.0 * f);
+      return mix(mix(hash21(cell), hash21(cell + vec2(1.0, 0.0)), u.x),
+        mix(hash21(cell + vec2(0.0, 1.0)), hash21(cell + vec2(1.0, 1.0)), u.x), u.y);
+    }
+    float flowNoise(vec2 p) {
+      return .62 * noise(p) + .28 * noise(p * 2.03 + 11.7)
+        + .10 * noise(p * 4.09 - 8.3);
+    }
     void main() {
       vec2 uv = v_uv;
       vec2 source = (uv - .5) * u_cover + .5;
-      float mask = smoothstep(.25, .31, source.x)
-        * (1.0 - smoothstep(.69, .75, source.x))
-        * smoothstep(.22, .32, source.y)
-        * (1.0 - smoothstep(.62, .71, source.y));
+      // A broad soft boundary lets the full silhouette ripple without clipping it.
+      float mask = smoothstep(.23, .29, source.x)
+        * (1.0 - smoothstep(.71, .77, source.x))
+        * smoothstep(.17, .27, source.y)
+        * (1.0 - smoothstep(.66, .76, source.y));
       float aspect = u_size.x / u_size.y;
       vec2 p = vec2(uv.x * aspect, uv.y);
       vec2 delta = (uv - u_pointer) * vec2(aspect, 1.0);
       float distanceToPointer = length(delta);
-      float local = exp(-distanceToPointer * distanceToPointer * 4.5);
+      float local = exp(-distanceToPointer * distanceToPointer * 3.2);
       float t = u_time;
-      // Waves travel at roughly 75 degrees, with a slower cross-current.
-      float direction = dot(p, vec2(.258819, .965926));
-      float waveX = sin(direction * 17.0 - t * 2.3 + sin(p.x * 11.0 + t * .8) * .85);
-      waveX += sin(p.y * 31.0 + p.x * 8.0 - t * 3.2) * .28;
-      float waveY = sin(p.x * 14.0 - t * 2.0 + cos(p.y * 11.0 + t * .7) * .9);
-      waveY += cos(direction * 27.0 + t * 2.7) * .26;
-      float hoverAmplitude = min(20.0, u_size.x * .025);
-      float amplitude = .9 + hoverAmplitude * u_energy * (.32 + .68 * local);
-      vec2 shift = vec2(waveX, waveY) * amplitude / u_size;
-      float ripple = sin(distanceToPointer * 34.0 - t * 5.5)
-        * exp(-distanceToPointer * 4.0) * u_motion * u_energy;
-      shift += normalize(delta + vec2(.0001)) * ripple * hoverAmplitude * .23 / u_size;
+      vec2 direction = vec2(.258819, .965926);
+      float travel = dot(p, direction);
+      // Domain-warped currents create irregular folds rather than a regular sine bend.
+      vec2 field = p * 6.5 - direction * t * 1.45;
+      vec2 warp = vec2(noise(field * .55 + t * .2), noise(field * .55 + 17.2 - t * .16));
+      vec2 liquid = vec2(flowNoise(field + warp * 1.3),
+        flowNoise(field + warp.yx * 1.3 + vec2(24.7, 8.4))) * 2.0 - 1.0;
+      float waveX = sin(travel * 16.0 - t * 4.4 + sin(p.x * 10.0 + t * 1.3));
+      float waveY = sin(p.x * 13.0 - t * 3.7 + cos(p.y * 12.0 + t * 1.1));
+      vec2 largeWave = vec2(waveX, waveY);
+      float hoverAmplitude = min(32.0, u_size.x * .04);
+      float idleAmplitude = min(5.5, u_size.x * .009);
+      float amplitude = idleAmplitude + hoverAmplitude * u_energy * (.52 + .48 * local);
+      vec2 folds = liquid * .85 + largeWave * .7;
+      vec2 shift = folds * amplitude / u_size;
+      // Cursor movement leaves an expanding, short-lived wake in the material.
+      float ripple = sin(distanceToPointer * 43.0 - t * 7.5 + liquid.x * 2.0)
+        * exp(-distanceToPointer * 3.4) * u_motion * u_energy;
+      shift += normalize(delta + vec2(.0001)) * ripple * hoverAmplitude * .48 / u_size;
       source += shift * u_cover * mask;
       gl_FragColor = texture2D(u_image, clamp(source, .001, .999));
     }
@@ -122,7 +146,7 @@
     pointerX += (targetX - pointerX) * tracking;
     pointerY += (targetY - pointerY) * tracking;
     motion += (targetMotion - motion) * (1 - Math.exp(-dt / .18));
-    targetMotion *= Math.exp(-dt / .1);
+    targetMotion *= Math.exp(-dt / .23);
     draw();
     surface.classList.add('is-wave-ready');
     frame = requestAnimationFrame(tick);
