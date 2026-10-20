@@ -12,6 +12,7 @@ permalink: /
   <link rel="canonical" href="https://raoxuaner.github.io/">
   <link rel="icon" type="image/svg+xml" href="/seona-favicon-proportional.svg">
   <link rel="stylesheet" href="/academic.css">
+  <link rel="stylesheet" href="/seona-hero.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -35,6 +36,14 @@ permalink: /
       </nav>
     </div>
   </header>
+<section class="seona-hero" aria-label="Seona's interactive artwork">
+  <div class="seona-hero__surface" data-seona-wave role="img" tabindex="0" aria-label="SEONA — interactive wave artwork by Xuaner Rao">
+    <img class="seona-hero__image" src="/seona-hero-original.png" alt="" width="2048" height="724" fetchpriority="high" decoding="async">
+    <canvas class="seona-hero__canvas" aria-hidden="true"></canvas>
+    <span class="seona-hero__name" aria-hidden="true">Xuaner Rao</span>
+  </div>
+</section>
+
   <div class="site-shell">
     <aside class="profile" aria-label="About XuanEr (Seona) Rao">
       <img class="profile-portrait" src="/xuaner-rao-portrait.jpeg" alt="Portrait of XuanEr (Seona) Rao" width="1365" height="2048">
@@ -137,5 +146,6 @@ permalink: /
   <footer class="site-footer">
     <div><span>© 2026 XuanEr (Seona) Rao</span></div>
   </footer>
+  <script src="/seona-hero.js" defer></script>
 </body>
 </html>
