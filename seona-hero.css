@@ -1,3 +1,12 @@
+/* This stylesheet is loaded on the homepage only. */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: #fff;
+}
+.profile { top: 126px; }
+.main-content { scroll-margin-top: 112px; }
 .seona-hero {
   width: 100%;
   margin: 32px 0 0;
@@ -46,6 +55,7 @@
   user-select: none;
 }
 @media (max-width: 760px) {
+  .main-content { scroll-margin-top: 200px; }
   .seona-hero { margin-top: 20px; }
   .seona-hero__surface { height: clamp(240px, 54vw, 340px); }
   .seona-hero__name { font-size: clamp(12px, 2.5vw, 17px); letter-spacing: .16em; }
