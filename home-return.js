@@ -2,7 +2,8 @@
   'use strict';
   const logo = document.querySelector('.site-header .wordmark');
   if (!logo) return;
-  const hero = document.querySelector('.seona-hero');
+  // Fade only the text: the canvas and its background must remain opaque.
+  const entranceTarget = document.querySelector('.seona-hero__name');
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
   let timeout = 0;
   let entrance = null;
@@ -15,9 +16,9 @@
   function arrive() {
     if (window.scrollY > 2) return;
     cleanup();
-    if (!reduced.matches && hero && hero.animate) {
+    if (!reduced.matches && entranceTarget && entranceTarget.animate) {
       if (entrance) entrance.cancel();
-      entrance = hero.animate([{ opacity: .78 }, { opacity: 1 }], {
+      entrance = entranceTarget.animate([{ opacity: .45 }, { opacity: 1 }], {
         duration: 550, easing: 'ease-out'
       });
     }

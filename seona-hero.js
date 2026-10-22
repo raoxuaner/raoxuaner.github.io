@@ -145,7 +145,8 @@
     if (initialized || failed || reduced.matches || !image.complete || !rippleMap.complete || !image.naturalWidth || !rippleMap.naturalWidth) return;
     initialized = true;
     try {
-      gl = canvas.getContext('webgl', { alpha: false, antialias: false, depth: false, stencil: false, powerPreference: 'low-power' });
+      // Retain the opaque frame while scrolling or pausing an offscreen hero.
+      gl = canvas.getContext('webgl', { alpha: false, preserveDrawingBuffer: true, antialias: false, depth: false, stencil: false, powerPreference: 'low-power' });
       if (!gl) throw new Error('WebGL unavailable');
       const program = gl.createProgram();
       const vertex = compile(gl.VERTEX_SHADER, vertexSource);

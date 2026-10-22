@@ -1,5 +1,6 @@
 /* Homepage artwork. Navigation positioning is shared in academic.css. */
 .seona-hero {
+  position: relative;
   width: 100%;
   margin: 32px 0 0;
   background: #f6f6f6;
@@ -10,7 +11,9 @@
   width: 100%;
   height: clamp(260px, 38vw, 560px);
   overflow: hidden;
-  isolation: isolate;
+  z-index: 0;
+  contain: paint;
+  background: #f6f6f6;
   touch-action: pan-y pinch-zoom;
 }
 .seona-hero__surface:focus-visible {
@@ -25,13 +28,13 @@
   width: 100%;
   height: 100%;
 }
-.seona-hero__image { object-fit: cover; object-position: center; }
-.seona-hero__canvas { opacity: 0; pointer-events: none; }
-.seona-hero__surface.is-wave-ready .seona-hero__canvas { opacity: 1; }
-.seona-hero__surface.is-wave-ready .seona-hero__image { visibility: hidden; }
+/* Keep an opaque poster below the GPU layer, including during scroll/repaint. */
+.seona-hero__image { z-index: 0; object-fit: cover; object-position: center; background: #f6f6f6; }
+.seona-hero__canvas { z-index: 1; visibility: hidden; background: #f6f6f6; pointer-events: none; }
+.seona-hero__surface.is-wave-ready .seona-hero__canvas { visibility: visible; }
 .seona-hero__name {
   position: absolute;
-  z-index: 1;
+  z-index: 2;
   top: 46%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -53,5 +56,4 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .seona-hero__surface .seona-hero__canvas { display: none; }
-  .seona-hero__surface.is-wave-ready .seona-hero__image { visibility: visible; }
 }
