@@ -1,0 +1,21 @@
+/* Hide the browser's direct image interactions without blocking project links. */
+[data-project-image-guard] {
+  position: relative;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+span[data-project-image-guard] { display: block; }
+[data-project-image-guard]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+[data-project-image-guard] img {
+  pointer-events: none;
+  -webkit-touch-callout: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
