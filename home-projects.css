@@ -9,7 +9,7 @@
   scroll-margin-top: 88px;
 }
 .home-selected-projects .section-heading { margin: 0 0 36px; padding-bottom: 18px; }
-.home-project-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 36px 34px; align-items: stretch; }
+.home-project-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 36px 34px; align-items: stretch; grid-auto-rows: 1fr; }
 .home-project-card {
   display: flex;
   flex-direction: column;
@@ -73,7 +73,7 @@
   .home-publication { padding-top: 40px; padding-bottom: 46px; }
 }
 @media (max-width: 620px) {
-  .home-project-grid { grid-template-columns: 1fr; gap: 28px; }
+  .home-project-grid { grid-template-columns: 1fr; gap: 28px; grid-auto-rows: auto; }
   .home-project-card { min-height: 0; }
   .home-project-copy { min-height: 288px; }
 }
