@@ -1,0 +1,34 @@
+/* Shared section headings: the Selected projects typography and full-width rule. */
+:root { --section-heading-size: 27px; --section-heading-gap: 16px; }
+.section-heading,
+.home-selected-projects .section-heading {
+  border-bottom: 1px solid var(--line);
+  padding-bottom: var(--section-heading-gap);
+  margin-bottom: 24px;
+}
+.section-heading h1,
+.section-heading h2,
+.projects-page-heading h1 {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: var(--section-heading-size);
+  font-weight: 500;
+  line-height: 1.22;
+  letter-spacing: -.025em;
+}
+.page-heading { margin-top: 0; }
+.main-content > h2 {
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: var(--section-heading-size);
+  font-weight: 500;
+  line-height: 1.22;
+  letter-spacing: -.025em;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: var(--section-heading-gap);
+  margin: 38px 0 24px;
+}
+.page-heading + .publication-row { border-top: 0; padding-top: 0; }
+@media(max-width:760px) { :root { --section-heading-size: 25px; } }
+@media print { :root { --section-heading-size: 19pt; --section-heading-gap: 8px; } }
