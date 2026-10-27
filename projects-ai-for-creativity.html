@@ -11,20 +11,55 @@ permalink: /projects/ai-for-creativity/
   <meta name="description" content="3D Artworks — Digital Media &amp; Visual Art by Seona Rao.">
   <link rel="canonical" href="https://raoxuaner.github.io/projects/ai-for-creativity/">
   <link rel="icon" type="image/svg+xml" href="/seona-favicon-proportional.svg">
-  <style>
-    *{box-sizing:border-box}html,body{margin:0;padding:0;width:100%;min-height:100%;background:#0d1020}body{overflow-x:hidden;overflow-y:auto;font-family:Arial,sans-serif}.project-gallery{width:100%;margin:0;padding:0}.project-gallery img{display:block;width:100%;max-width:none;height:auto;margin:0;padding:0}.back-to-projects{position:fixed;z-index:2;top:max(18px,env(safe-area-inset-top));left:max(18px,env(safe-area-inset-left));padding:10px 15px;border:1px solid rgba(255,255,255,.25);border-radius:99px;background:rgba(15,19,34,.72);backdrop-filter:blur(12px);color:#fff;text-decoration:none;font-size:13px;line-height:1.4;transition:background 180ms ease}.back-to-projects:hover{background:rgba(15,19,34,.94)}.back-to-projects:focus-visible{outline:3px solid #fff;outline-offset:4px}@media(prefers-reduced-motion:reduce){.back-to-projects{transition:none}}
-  </style>
-  <style>
-    .project-video{position:relative;width:100%;aspect-ratio:16/9;background:#000}.project-video iframe{position:absolute;inset:0;display:block;width:100%;height:100%;border:0}
-  </style>
   <link rel="stylesheet" href="/project-image-guard.css?v=20261022">
+  <style>
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;background:#0d1020}
+    html,body{margin:0;padding:0;width:100%;min-height:100%}
+    body{overflow-x:hidden;background:#0d1020;color:#f1edf8;font-family:Arial,sans-serif}
+    .project-gallery{width:100%;margin:0;padding:0}
+    .project-gallery img{display:block;width:100%;max-width:none;height:auto;margin:0;padding:0}
+    .back-to-projects{position:fixed;z-index:5;top:max(18px,env(safe-area-inset-top));left:max(18px,env(safe-area-inset-left));padding:10px 15px;border:1px solid rgba(255,255,255,.18);border-radius:99px;background:rgba(18,20,38,.95);color:#f1edf8;text-decoration:none;font-size:13px;line-height:1.4;transition:background 180ms ease}
+    .back-to-projects:hover{background:#282d46}
+    a:focus-visible{outline:3px solid #b9c0ff;outline-offset:5px}
+    .art-intro{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(250px,1fr);align-items:center;gap:48px;max-width:1240px;margin:0 auto;padding:82px 32px 32px}
+    .project-video{position:relative;width:100%;aspect-ratio:16/9;background:#14182c;box-shadow:0 16px 36px -24px rgba(0,0,0,.6)}
+    .project-video iframe{position:absolute;inset:0;display:block;width:100%;height:100%;border:0}
+    .video-source{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin:0;padding:14px 0 0;color:#aaa4bd;font-size:12px;line-height:1.5}
+    .video-source a{color:#d0cbed;text-decoration:underline;text-underline-offset:4px}
+    .art-meta{margin:0 0 18px;color:#aaa4bd;font-size:12px;line-height:1.5;letter-spacing:.08em;text-transform:uppercase}
+    .art-title{font-family:Georgia,'Times New Roman',serif;font-size:clamp(36px,4.5vw,60px);font-weight:500;letter-spacing:-.045em;line-height:1.05;margin:0 0 22px}
+    .art-summary{font-size:16px;line-height:1.75;margin:0 0 18px;max-width:390px}
+    .art-note{font-size:14px;line-height:1.7;margin:0 0 24px;color:#aaa4bd;max-width:360px}
+    .explore-project{display:inline-flex;align-items:center;gap:20px;padding:12px 18px;border:1px solid #444d75;background:#242942;color:#e0def5;font-size:14px;text-decoration:none;transition:background 180ms ease}
+    .explore-project:hover{background:#303957}
+    .story-heading{display:flex;justify-content:space-between;gap:20px;align-items:center;max-width:1176px;margin:0 auto;padding:22px 0 20px;border-top:1px solid #30344e;color:#aaa4bd;font-size:12px;line-height:1.5;letter-spacing:.08em;text-transform:uppercase;scroll-margin-top:20px}
+    .story-heading span:last-child{color:#b9c0ff;font-size:20px}
+    @media(min-width:761px) and (max-height:740px){.art-intro{max-width:1120px;padding-top:72px;padding-bottom:20px;gap:36px}.art-title{font-size:46px}.art-note{margin-bottom:16px}.art-summary{font-size:15px;line-height:1.6}}
+    @media(max-width:1240px){.story-heading{margin-left:32px;margin-right:32px}}
+    @media(max-width:760px){.art-intro{grid-template-columns:1fr;gap:26px;padding:76px 22px 24px}.art-intro-copy{grid-row:1}.art-meta{margin-bottom:10px}.art-title{font-size:42px;margin-bottom:14px}.art-summary{font-size:15px;line-height:1.6;max-width:none;margin-bottom:14px}.art-note{display:none}.explore-project{padding:10px 14px;font-size:13px}.story-heading{margin:0 22px;padding:18px 0;font-size:10px}.video-source{font-size:11px;padding-top:10px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.back-to-projects,.explore-project{transition:none}}
+  </style>
 </head>
 <body>
   <a class="back-to-projects" href="/projects/" aria-label="Back to selected projects">← Projects</a>
   <main class="project-gallery" aria-label="3D Artworks — Digital Media &amp; Visual Art">
+    <section class="art-intro" aria-labelledby="art-title">
+      <div class="art-intro-media">
     <section class="project-video" aria-label="3D Artworks video">
       <iframe src="https://www.youtube-nocookie.com/embed/tyvXVg-Hrhw?rel=0&amp;playsinline=1" title="3D Artworks — project video" width="1920" height="1080" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </section>
+        <p class="video-source"><span>Project film</span><a href="https://www.youtube.com/watch?v=tyvXVg-Hrhw" target="_blank" rel="noopener noreferrer">Watch on YouTube ↗</a></p>
+      </div>
+      <div class="art-intro-copy">
+        <p class="art-meta">Digital Media &amp; Visual Art</p>
+        <h1 id="art-title" class="art-title">3D Artworks</h1>
+        <p class="art-summary">A collection of 3D visuals, digital fashion and experimental media art.</p>
+        <p class="art-note">Watch the film, then scroll to explore the full artwork collection.</p>
+        <a class="explore-project" href="#artwork-gallery">Explore the artworks <span aria-hidden="true">↓</span></a>
+      </div>
+    </section>
+    <div id="artwork-gallery" class="story-heading"><span>Artwork collection · Digital Media &amp; Visual Art</span><span aria-hidden="true">↓</span></div>
     <img src="/ai-for-creativity-01.png" alt="3D Artworks: SEONA digital worlds, 3D visual design, and creative typography" width="1080" height="1920" fetchpriority="high">
     <img src="/ai-for-creativity-02.png" alt="3D Artworks: digital fashion and experimental media art" width="1080" height="1920" loading="lazy">
   </main>

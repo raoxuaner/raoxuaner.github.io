@@ -13,29 +13,53 @@ permalink: /projects/knitvortex/
   <link rel="icon" type="image/svg+xml" href="/seona-favicon-proportional.svg">
   <style>
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;width:100%;min-height:100%;background:#fff8e9}
-    body{overflow-x:hidden;overflow-y:auto;font-family:Arial,sans-serif}
+    html{scroll-behavior:smooth;background:#fff8e9}
+    html,body{margin:0;padding:0;width:100%;min-height:100%}
+    body{overflow-x:hidden;background:#fff8e9;color:#493f37;font-family:Arial,sans-serif}
     .project-gallery{width:100%;margin:0;padding:0}
     .project-gallery img{display:block;width:100%;max-width:none;height:auto;margin:0;padding:0}
-    .back-to-projects{position:fixed;z-index:2;top:max(18px,env(safe-area-inset-top));left:max(18px,env(safe-area-inset-left));padding:10px 15px;border:1px solid rgba(255,255,255,.25);border-radius:99px;background:rgba(15,19,34,.72);backdrop-filter:blur(12px);color:#fff;text-decoration:none;font-size:13px;line-height:1.4;transition:background 180ms ease}
-    .back-to-projects:hover{background:rgba(15,19,34,.94)}
-    .back-to-projects:focus-visible,.video-source a:focus-visible{outline:3px solid #fff;outline-offset:4px}
-    .project-video{position:relative;width:100%;aspect-ratio:16/9;background:#000}
+    .back-to-projects{position:fixed;z-index:5;top:max(18px,env(safe-area-inset-top));left:max(18px,env(safe-area-inset-left));padding:10px 15px;border:1px solid rgba(73,63,55,.15);border-radius:99px;background:rgba(255,248,233,.95);color:#493f37;text-decoration:none;font-size:13px;line-height:1.4;transition:background 180ms ease}
+    .back-to-projects:hover{background:#f0e4cd}
+    a:focus-visible{outline:3px solid #558c92;outline-offset:5px}
+    .knit-intro{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(250px,1fr);align-items:center;gap:48px;max-width:1240px;margin:0 auto;padding:82px 32px 32px}
+    .project-video{position:relative;width:100%;aspect-ratio:16/9;background:#e6d9b8;box-shadow:0 16px 36px -24px rgba(73,63,55,.45)}
     .project-video iframe{position:absolute;inset:0;display:block;width:100%;height:100%;border:0}
-    .video-source{margin:0;padding:10px 20px;background:#10131a;text-align:right;font-size:12px;line-height:1.5}
-    .video-source a{color:#fff;text-decoration:none}
-    .video-source a:hover{text-decoration:underline}
-    @media(prefers-reduced-motion:reduce){.back-to-projects{transition:none}}
+    .video-source{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin:0;padding:14px 0 0;color:#8a7967;font-size:12px;line-height:1.5}
+    .video-source a{color:#655442;text-decoration:underline;text-underline-offset:4px}
+    .knit-meta{margin:0 0 18px;color:#8a7967;font-size:12px;line-height:1.5;letter-spacing:.08em;text-transform:uppercase}
+    .knit-title{font-family:Georgia,'Times New Roman',serif;font-size:clamp(36px,4.5vw,60px);font-weight:500;letter-spacing:-.045em;line-height:1.05;margin:0 0 22px}
+    .knit-summary{font-size:16px;line-height:1.75;margin:0 0 18px;max-width:390px}
+    .knit-note{font-size:14px;line-height:1.7;margin:0 0 24px;color:#8a7967;max-width:360px}
+    .explore-project{display:inline-flex;align-items:center;gap:20px;padding:12px 18px;border:1px solid #b5d0cf;background:#e5efea;color:#365f62;font-size:14px;text-decoration:none;transition:background 180ms ease}
+    .explore-project:hover{background:#d6e7e3}
+    .story-heading{display:flex;justify-content:space-between;gap:20px;align-items:center;max-width:1176px;margin:0 auto;padding:22px 0 20px;border-top:1px solid #e5d9c4;color:#8a7967;font-size:12px;line-height:1.5;letter-spacing:.08em;text-transform:uppercase;scroll-margin-top:20px}
+    .story-heading span:last-child{color:#558c92;font-size:20px}
+    @media(min-width:761px) and (max-height:740px){.knit-intro{max-width:1120px;padding-top:72px;padding-bottom:20px;gap:36px}.knit-title{font-size:46px}.knit-note{margin-bottom:16px}.knit-summary{font-size:15px;line-height:1.6}}
+    @media(max-width:1240px){.story-heading{margin-left:32px;margin-right:32px}}
+    @media(max-width:760px){.knit-intro{grid-template-columns:1fr;gap:26px;padding:76px 22px 24px}.knit-intro-copy{grid-row:1}.knit-meta{margin-bottom:10px}.knit-title{font-size:42px;margin-bottom:14px}.knit-summary{font-size:15px;line-height:1.6;max-width:none;margin-bottom:14px}.knit-note{display:none}.explore-project{padding:10px 14px;font-size:13px}.story-heading{margin:0 22px;padding:18px 0;font-size:10px}.video-source{font-size:11px;padding-top:10px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.back-to-projects,.explore-project{transition:none}}
   </style>
   <link rel="stylesheet" href="/project-image-guard.css?v=20261022">
 </head>
 <body>
   <a class="back-to-projects" href="/projects/" aria-label="Back to selected projects">← Projects</a>
   <main class="project-gallery" aria-label="KNITVORTEX — HCI &amp; Game design">
-    <section class="project-video" aria-label="KNITVORTEX project video">
+    <section class="knit-intro" aria-labelledby="knit-title">
+      <div class="knit-intro-media">
+        <section class="project-video" aria-label="KNITVORTEX project video">
       <iframe src="https://www.youtube-nocookie.com/embed/rQz2-XQWhUI?rel=0&amp;playsinline=1" title="KNITVORTEX — project video" width="1920" height="1080" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </section>
-    <p class="video-source"><a href="https://www.youtube.com/watch?v=rQz2-XQWhUI" target="_blank" rel="noopener noreferrer">Watch on YouTube ↗</a></p>
+    <p class="video-source"><span>Prototype film</span><a href="https://www.youtube.com/watch?v=rQz2-XQWhUI" target="_blank" rel="noopener noreferrer">Watch on YouTube ↗</a></p>
+      </div>
+      <div class="knit-intro-copy">
+        <p class="knit-meta">2025 · HCI &amp; Game design</p>
+        <h1 id="knit-title" class="knit-title">KNITVORTEX</h1>
+        <p class="knit-summary">A tangible game prototype connecting sensor-equipped knitting needles with a Unity-based 3D room.</p>
+        <p class="knit-note">Watch the prototype in action, then scroll to explore the design process, interactions and hardware.</p>
+        <a class="explore-project" href="#project-story">Explore the project <span aria-hidden="true">↓</span></a>
+      </div>
+    </section>
+    <div id="project-story" class="story-heading"><span>Project story · Design process &amp; prototype</span><span aria-hidden="true">↓</span></div>
     <img src="/knitvortex-01.png" alt="KNITVORTEX project background, knitting concept and interaction design" width="1414" height="2000" fetchpriority="high" decoding="async">
     <img src="/knitvortex-02.png" alt="KNITVORTEX game visuals, sensor hardware, user testing and software" width="1414" height="2000" loading="lazy" decoding="async">
   </main>
