@@ -1,0 +1,15 @@
+.journal-meta { text-transform: none; letter-spacing: normal; }
+.publication-row { display: grid; grid-template-columns: 185px minmax(0, 1fr); gap: 24px; align-items: start; padding: 24px 0; border-top: 1px solid var(--line); }
+.publication-thumbnail { display: block; line-height: 0; }
+.publication-thumbnail img { width: 100%; height: auto; aspect-ratio: 2028 / 1254; object-fit: contain; background: #000; border: 1px solid var(--line); border-radius: 0; }
+.publication-copy { min-width: 0; }
+.publication-copy .publication-title { font-family: var(--sans); font-size: 16px; font-weight: 400; line-height: 1.75; letter-spacing: normal; margin: 0; }
+.publication-title a { text-decoration: underline; text-underline-offset: 4px; }
+.publication-authors { margin: 8px 0 3px; color: var(--muted); font-size: 14px; line-height: 1.7; }
+.publication-authors strong { color: var(--ink); font-weight: 700; }
+.publication-venue { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.75; }
+.publication-badges { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 12px; }
+.publication-links { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; font-size: 14px; line-height: 1.7; }
+.home-publication .publication-row { grid-template-columns: 220px minmax(0, 1fr); gap: 28px; padding: 0; border-top: 0; }
+@media(max-width: 1000px) { .publication-row { grid-template-columns: 150px minmax(0, 1fr); gap: 20px; } }
+@media(max-width: 600px) { .publication-row, .home-publication .publication-row { grid-template-columns: 1fr; gap: 20px; } .publication-thumbnail { width: min(260px, 100%); } }
